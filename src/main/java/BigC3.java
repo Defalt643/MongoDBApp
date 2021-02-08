@@ -32,9 +32,8 @@ public class BigC3 {
 				case "2":
 					System.out.println("\n\n********* Showing All of Document of the Customer Collection ********");
 					DBCursor cursor = table.find();
-					DBCursor cursor2 = table.find();
 					while(cursor.hasNext()) {
-						System.out.println("Name: "+cursor.next().get("name")+"\nAge:"+cursor2.next().get("age")+"\n-----------------------------------------");
+						System.out.println("Name: "+cursor.curr().get("name")+"\nAge:"+cursor.next().get("age")+"\n-----------------------------------------");
 					}System.out.println("\n");
 					break;
 				case "3":
