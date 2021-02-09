@@ -32,10 +32,13 @@ public class BigC3 {
 				case "2":
 					System.out.println("\n\n********* Showing All of Document of the Customer Collection ********");
 					DBCursor cursor = table.find();
-					cursor.next();
 					while(cursor.hasNext()) {
-						System.out.println("Name: "+cursor.curr().get("name")+"\nAge:"+cursor.curr().get("age")+"\n-----------------------------------------");
 						cursor.next();
+						if(cursor.hasNext()) {
+							System.out.println("Name: "+cursor.curr().get("name")+"\nAge:"+cursor.curr().get("age")+"\n-----------------------------------------");
+						}else {
+							System.out.println("Name: "+cursor.curr().get("name")+"\nAge:"+cursor.curr().get("age"));
+						}
 					}System.out.println("\n");
 					break;
 				case "3":
@@ -72,7 +75,7 @@ public class BigC3 {
 						table.update(query, updateObj);
 						System.out.println("Edit successfully\n\n");
 					}else {
-						System.out.println("\""+name+"\" Not found in database.");
+						System.out.println("\""+name+"\" Not found in database.\n\n");
 					}
 					break;
 				case "5":
@@ -91,7 +94,7 @@ public class BigC3 {
 						table.remove(searchQuery);
 						System.out.println("Remove successfully\n\n");
 					}else {
-						System.out.println("\""+name+"\" Not found in database.");
+						System.out.println("\""+name+"\" Not found in database.\n\n");
 					}
 					break;
 				default:
