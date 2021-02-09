@@ -11,7 +11,7 @@ public class BigC3 {
 				System.out.println("1. Showing All of Databases Name\n2. Showing All of Document of the Customer Collection");
 				System.out.println("3. Adding the Person information\n4. Editing the Person information\n5. Removing the Person information");
 				MongoClient mongo =new MongoClient("localhost",27017);
-				DB db = mongo.getDB("BigC");
+				DB db = mongo.getDB("bigc");
 				DBCollection table = db.getCollection("customer");
 				System.out.print("Input Number: ");
 				menu=kb.next();
@@ -32,8 +32,10 @@ public class BigC3 {
 				case "2":
 					System.out.println("\n\n********* Showing All of Document of the Customer Collection ********");
 					DBCursor cursor = table.find();
+					cursor.next();
 					while(cursor.hasNext()) {
-						System.out.println("Name: "+cursor.curr().get("name")+"\nAge:"+cursor.next().get("age")+"\n-----------------------------------------");
+						System.out.println("Name: "+cursor.curr().get("name")+"\nAge:"+cursor.curr().get("age")+"\n-----------------------------------------");
+						cursor.next();
 					}System.out.println("\n");
 					break;
 				case "3":
