@@ -8,8 +8,8 @@ public class BigC2 {
 		try {
 			String menu;
 			do {
-				System.out.println("********** Data Management for BigC Customer **********\nMENU\n0. Exit");
-				System.out.println("1. Showing All of Databases Name\n2. Showing All of Document of the Customer Collection");
+				System.out.println("********** Data Management for bigc Customer **********\nMENU\n0. Exit");
+				System.out.println("1. Showing All of Databases Name\n2. Showing All of Document of the customer Collection");
 				System.out.println("3. Adding the Person information\n4. Editing the Person information\n5. Removing the Person information");
 				System.out.print("\nInput Number: ");
 				MongoClient mongo =new MongoClient("localhost",27017);
