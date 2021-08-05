@@ -42,7 +42,7 @@ public class BigC2 {
 		Scanner kb = new Scanner(System.in);
 		boolean login=false;
 		try {
-			String menu;//create variable string type named "menu".
+			String menu,login_name = null;//create variable string type named "menu" and "login_name" to store name of user who logged in.
 			do {
 				MongoClient mongo =new MongoClient("localhost",27017);		//Create object named "mongo" for connect to the databases.
 				DB db = mongo.getDB("bigc");								//Create a variable DB type named "db" and assign it to the "bigc" database.
@@ -61,11 +61,13 @@ public class BigC2 {
 					DBCursor cursor = table.find(query);
 					if(cursor.hasNext()) {
 						login=true;
+						login_name=user;
 						break;
 					}else {
-						System.out.println("Incorrect information, please you input tried again");
+						System.out.println("Login failed.\nIncorrect information, please you input tried again");
 					}
 				}
+				System.out.println("Login Successfully, Welcome "+login_name+"!!");
 				System.out.println("   ********** Data Management for BigC Customer *************\n   MENU\n0. Exit");
 				System.out.println("1. Showing All of Databases Name\n2. Showing All of Document of the Customer Collection");//Display menu
 				System.out.println("3. Adding the Person information\n4. Editing the Person information\n5. Removing the Person information");//Display menu
@@ -171,7 +173,7 @@ public class BigC2 {
 			}while(!menu.equals("0"));
 			
 		}catch(Exception e) {
-			
+			System.out.println("Connection lost.(ERROR:42)");
 		}
 
 	}
